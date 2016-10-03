@@ -70,5 +70,4 @@ public class Fraction {
 		F1.Simplify(F1);
 	}
 
-	//Will add simplify method later. :)
 }
