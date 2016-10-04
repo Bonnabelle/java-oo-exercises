@@ -12,13 +12,18 @@ class Rectangle {
 		this.Length = Length;
 		this.Height = Height;
 	}
+	
+	//Gets measurements, and the test corresponding with this method applies to the getArea and getPerimeter methods.
+	public String getMeasurements() {
+		return this.Length + "," + this.Height;
+	}
 
-	public void getArea() {
-		System.out.println("The area of your rectangle is: " + (this.Length * this.Height));
+	public int getArea() {
+		return this.Length * this.Height;
 	}
 	
-	public void getPerimeter() {
-		System.out.println("The perimeter of your rectangle is: " + ((this.Length * 2) + (this.Height * 2)) + ".");
+	public int getPerimeter() {
+		return ((this.Length * 2) + (this.Height * 2));
 	}
 	
 	public boolean isSquare() {
@@ -42,8 +47,8 @@ class Rectangle {
 		//Method testing
 		
 		Rextangle.isSquare();
-		Rextangle.getPerimeter();
-		Rextangle.getArea();
+		System.out.println("The perimeter of your rectangle is: " + Rextangle.getPerimeter() + ".");
+		System.out.println("The area for your rectangle is: " + Rextangle.getArea() + ".");
 		System.out.println(Rextangle.isSquare());
 
 	}

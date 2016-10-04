@@ -20,7 +20,19 @@ class BaseballPlayer {
 		this.Hits = Hits;
 		this.RBI = RBI;
 	}
+	//Getter methods
 	
+	public char getStyle() {
+		return this.Style;
+	}
+	
+	public String getName() {
+		return this.Name;
+	}
+	
+	public int getGames() {
+		return this.GamesPlayed;
+	}
 	//This is only useful if someone changes style
 	public char getRealStyle(BaseballPlayer P){
 		Scanner input = new Scanner(System.in);

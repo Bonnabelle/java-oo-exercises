@@ -21,29 +21,33 @@ public class Fraction {
 		return this.Denominator;
 	}
 	
-	public void addFraction(Fraction F1, Fraction F2) {
+	public String getFrac() {
+		return this.getNum() + "/" + this.getDen();
+	}
+	
+	public String addFraction(Fraction F1, Fraction F2) {
 		int Num = F1.getNum() + F2.getNum();
 		int Den = F1.getDen() + F2.getDen();
-		System.out.println(Num + "/" + Den);
+		return Num + "/" + Den;
 	}
 	
 	
-	public void multiplyFraction(Fraction F1, Fraction F2) {
+	public String multiplyFraction(Fraction F1, Fraction F2) {
 		int newNum = F1.getNum() * F2.getNum();
 		int newDen = F1.getDen() * F2.getDen();
 		if (newNum > newDen) {
 			newNum = newNum / newDen;
 		} else {
-			System.out.println(newNum + "/" + newDen);
+			return newNum + "/" + newDen;
 		}
-		
+		return newNum + "/" + newDen;
 	}
 	
-	public void Reciprocate(){
-		System.out.println(this.getDen() + "/" + this.getNum());
+	public String Reciprocate(){
+		return this.getDen() + "/" + this.getNum();
 	}
 	
-	public void Simplify(Fraction F){
+	public static String Simplify(Fraction F){
 		int largest = F.getDen() - F.getNum();
 		String fin = "0";
 		for (int i = 1; i <= largest; i++){
@@ -53,21 +57,21 @@ public class Fraction {
 			
 		}
 		
-		System.out.println(fin);
+		return fin;
 		
 	}
 
 	
 	//Displays output
 	public static void main(String[] args) {
-		Fraction F1 = new Fraction(8,16);
+		Fraction F1 = new Fraction(22,44);
 		Fraction F2 = new Fraction(2,3);
 		
-		F1.addFraction(F1,F2);
+		System.out.println(F1.addFraction(F1,F2));
 		F1.multiplyFraction(F1, F2);
-		F1.Reciprocate();
+		System.out.println(F1.Reciprocate());
 		F2.Reciprocate();
-		F1.Simplify(F1);
+		System.out.println(Simplify(F1));
 	}
-
+	
 }
