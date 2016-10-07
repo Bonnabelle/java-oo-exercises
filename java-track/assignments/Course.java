@@ -53,14 +53,6 @@ public class Course {
 			return "Course name: " + this.CourseName + "\n" + "Course credits: " + this.CourseCreds;
 			
 		}
-	
-	public static void main(String[] args) {
-		Course Heck = new Course("LC 666", 15, 11);
-		Student Boop = new Student("Booper", "Dooper", 666666666);
-		Heck.addStudent(Boop);
-		Heck.averageGPA();
 		
-		
-	}
-
 }
+

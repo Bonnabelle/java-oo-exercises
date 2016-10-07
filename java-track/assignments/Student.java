@@ -74,13 +74,5 @@ public class Student {
 	public String toString() {
 		return "Name: " + this.Fname + " " + this.Lname + "\nID: " + StudID;
 	}
-	
-
-	public static void main(String[] args) {
-		Student Blargly = new Student("Blargly", "Blarg", 8987654);
-		//System.out.println(Blargly);
-		System.out.println(Blargly.submitGrade(2.3,2));
-		System.out.println(Blargly.submitGrade(9,29));
-	}
 
 }
