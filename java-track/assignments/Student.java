@@ -51,11 +51,6 @@ public class Student {
 	}
 	
 	public double submitGrade(double classGrade, int classCreds) {
-		/*double newGPA = this.GPA * classCreds;
-		double stuff = classGrade * classCreds;
-		double fin = (newGPA + stuff) / this.Credits;
-		return Math.round(fin * 1000.0);
-		*/
 		double newGPA = (this.GPA * this.Credits) + (classGrade * classCreds); 
 		this.Credits = this.Credits + classCreds;
 		this.GPA = Math.round(newGPA / this.Credits * 1000.0) / 1000.0;
