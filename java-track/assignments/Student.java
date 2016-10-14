@@ -51,11 +51,6 @@ public class Student {
 	}
 	
 	public double submitGrade(double classGrade, int classCreds) {
-		/*double newGPA = this.GPA * classCreds;
-		double stuff = classGrade * classCreds;
-		double fin = (newGPA + stuff) / this.Credits;
-		return Math.round(fin * 1000.0);
-		*/
 		double newGPA = (this.GPA * this.Credits) + (classGrade * classCreds); 
 		this.Credits = this.Credits + classCreds;
 		this.GPA = Math.round(newGPA / this.Credits * 1000.0) / 1000.0;
@@ -78,14 +73,6 @@ public class Student {
 	}
 	public String toString() {
 		return "Name: " + this.Fname + " " + this.Lname + "\nID: " + StudID;
-	}
-	
-
-	public static void main(String[] args) {
-		Student Blargly = new Student("Blargly", "Blarg", 8987654);
-		//System.out.println(Blargly);
-		System.out.println(Blargly.submitGrade(2.3,2));
-		System.out.println(Blargly.submitGrade(9,29));
 	}
 
 }

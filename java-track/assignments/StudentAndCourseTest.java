@@ -1,5 +1,3 @@
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -23,7 +21,7 @@ public class StudentAndCourseTest extends TestCase {
 		assertEquals("Doug Shook", s.getName());
 		assertEquals(111111, s.getStudentID());
 		//No credits, should be a freshman, no GPA
-		assertEquals(0.0, s.getGPA()); //Shouldn't this be an integer, not a double?
+		assertEquals(0.0, s.getGPA());
 		assertEquals(0, s.getCredits());
 		assertEquals("Freshman", s.getClassStanding());
 		for (int i = 0; i < 20; ++i) {
@@ -84,15 +82,15 @@ public class StudentAndCourseTest extends TestCase {
 		Student s = new Student("D", "S", 1);
 		for (int i = 0; i < 14; i++) {
 			s.submitGrade(0, 1);
-			assertEquals("Compute tuition not working properly", (i+1) * 1333.33, s.computeTuition());
+			assertEquals("Compute tution not working properly", (i+1) * 1333.33, s.computeTuition());
 		}
 
 		s.submitGrade(0, 1);
-		assertEquals("Compute tuition not working properly", 20000.0, s.computeTuition());
+		assertEquals("Compute tution not working properly", 20000.0, s.computeTuition());
 
 		for (int i = 0; i < 14; i++) {
 			s.submitGrade(0, 1);
-			assertEquals("Compute tuition not working properly", 1333.33 * (i+1) + 20000.0, s.computeTuition());
+			assertEquals("Compute tution not working properly", 1333.33 * (i+1) + 20000.0, s.computeTuition());
 		}
 	}
 
