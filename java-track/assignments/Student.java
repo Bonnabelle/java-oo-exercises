@@ -17,8 +17,6 @@ public class Student {
 		this.StudID = StudID;
 	}
 	
-
-	
 	//Getters
 	
 	public String getName() {
