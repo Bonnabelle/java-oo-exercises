@@ -38,11 +38,12 @@ public class Javagram {
 			}
 			
 		} while(picture == null);
-		
 		// TODO - prompt user for filter and validate input
-		
+		System.out.println("Enter the ID of your picture.");
+		int ID = in.nextInt();
+
 		// TODO - pass filter ID int to getFilter, and get an instance of Filter back 
-		BlueFilter filter = getFilter();			
+		BlueFilter filter = getFilter(ID);			
 
 		// filter and display image
 		Picture processed = filter.process(picture);
@@ -56,6 +57,15 @@ public class Javagram {
 		String fileName = in.next();
 		
 		// TODO - if the user enters the same file name as the input file, confirm that they want to overwrite the original
+		if(filename == dir){
+			System.out.println("Are you sure you want to overwrite the image in " + dir + "? Y/N");
+			char answer = in.next().charAt(0);
+			if(answer == 'Y' || answer == 'y'){
+				//Save image to same directory
+			} else {
+				//reprompt them to save in another directory
+			}
+		
 		
 		if (fileName.equals("exit")) {
 			System.out.println("Image not saved");
