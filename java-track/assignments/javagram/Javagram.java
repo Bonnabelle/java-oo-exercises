@@ -38,6 +38,7 @@ public class Javagram {
 			}
 			
 		} while(picture == null);
+
 		// TODO - prompt user for filter and validate input
 		System.out.println("Enter the ID of your picture.");
 		int ID = in.nextInt();
@@ -57,6 +58,7 @@ public class Javagram {
 		String fileName = in.next();
 		
 		// TODO - if the user enters the same file name as the input file, confirm that they want to overwrite the original
+		
 		if(filename == dir){
 			System.out.println("Are you sure you want to overwrite the image in " + dir + "? Y/N");
 			char answer = in.next().charAt(0);
@@ -65,7 +67,6 @@ public class Javagram {
 			} else {
 				//reprompt them to save in another directory
 			}
-		
 		
 		if (fileName.equals("exit")) {
 			System.out.println("Image not saved");
