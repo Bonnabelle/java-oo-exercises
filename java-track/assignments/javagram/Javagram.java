@@ -82,7 +82,7 @@ public class Javagram {
 	
 	// TODO - refactor this method to accept an int parameter, and return an instance of the Filter interface
 	// TODO - refactor this method to thrown an exception if the int doesn't correspond to a filter
-	private static BlueFilter getFilter() {
+	private static BlueFilter getFilter(int ID) {
 		
 		// TODO - create some more filters, and add logic to return the appropriate one
 		return new BlueFilter();
