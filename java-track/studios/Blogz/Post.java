@@ -3,7 +3,7 @@ package Blogz;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Post {
+public class Post extends Entity{
 	
 	private String body;
 	private String title;
@@ -11,6 +11,7 @@ public class Post {
 	private static ArrayList<Date> timesEdited  = new ArrayList<>();
 	
 	public Post(String title, String body, Date created){
+		super();
 		Post.timesEdited.add(created);
 		this.title = title;
 		this.body = body;

@@ -2,7 +2,7 @@ package Blogz;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 
-public class User {
+public class User extends Entity{
 	
 	//Fields
 	private String username;
@@ -12,6 +12,7 @@ public class User {
 	
 	//Constructor
 	public User(String username, String password){
+		super();
 		User.users.add(this);
 		this.username = username;
 		this.password = password;
