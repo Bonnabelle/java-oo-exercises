@@ -11,6 +11,9 @@ public class Course {
 		private String[] StudentRoster;
 		ArrayList<Double> StudentGPA = new ArrayList<>();
 		
+		//For testing
+		private boolean placeEquals = false;
+		
 		//Constructor
 		public Course(String CourseName, int CourseCreds, int SeatsLeft) {
 			Course.Courses.add(this);
@@ -31,6 +34,10 @@ public class Course {
 			return this.SeatsLeft;
 		}
 		
+		public boolean getStudentPlace() {
+			return this.placeEquals;
+		}
+		
 		public boolean addStudent(Student S) {
 			for(int i = 0; i < StudentRoster.length; i++){
 					if(StudentRoster[i] == S.getName()){
@@ -39,6 +46,9 @@ public class Course {
 						if(this.SeatsLeft > 0) {
 							this.StudentGPA.add(S.getGPA());
 							this.StudentRoster[this.StudentRoster.length-this.SeatsLeft] = S.getName();
+							if(this.StudentRoster[this.StudentRoster.length-this.SeatsLeft].equals(S.getName())){
+								this.placeEquals = true;
+							}
 							this.SeatsLeft = this.SeatsLeft - 1;
 							return true;
 					}}}

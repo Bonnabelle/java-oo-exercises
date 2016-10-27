@@ -36,6 +36,14 @@ public class Student {
 		return this.Credits;
 	}
 	
+	public boolean checkEquality(Student S) {
+		if(S.Fname.equals(S.Fname) && S.Lname.equals(S.Lname)){
+			return true;
+		} else { 
+			return false;
+		}
+	}
+	
 
 	public String getClassStanding() {
 		if (this.Credits < 30) {

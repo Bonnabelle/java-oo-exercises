@@ -12,6 +12,16 @@ public class Entity {
 	public int getUID() {
 		return this.uid;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		o = this.uid;
+		if(o != null && o.equals(o)){
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public static void main(String[] args){
 		Entity bleh = new Entity();

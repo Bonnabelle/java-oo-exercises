@@ -10,16 +10,17 @@ public class Post extends Entity{
 	private final Date created;
 	private static ArrayList<Date> timesEdited  = new ArrayList<>();
 	
+	//For testing
+	private Post p; 
+	
 	public Post(String title, String body, Date created){
 		super();
 		Post.timesEdited.add(created);
 		this.title = title;
 		this.body = body;
 		this.created = created;
+		this.p = this;
 	}
-	
-	
-	private Post p; //This is just for testing
 	
 	
 	public ArrayList<Date> getTimesEdited() {

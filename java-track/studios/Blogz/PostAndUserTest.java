@@ -21,11 +21,6 @@ public class PostAndUserTest {
 	public void testUsernameGet() {
 		assertEquals(t.getUsername(),"Test");
 	}
-
-	/*@Test
-	public void testUserList() {
-		assertEquals(t.getUsers(),"333");
-	}*/
 	
 	@Test
 	public void testHashingPassword() {
@@ -47,6 +42,6 @@ public class PostAndUserTest {
 	@Test
 	public void testEdit() {
 		p.edit("Blloooo", "Blaaaarg");
-		assertEquals(p,p.getPost());
+		assertTrue(p == p.getPost());
 	}
 }

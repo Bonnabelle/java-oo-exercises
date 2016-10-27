@@ -37,7 +37,7 @@ public class User extends Entity{
 	}
 	
 	public boolean isValidPassword(String hash) {
-		if(hash == User.hashPassword(User.password)){
+		if(User.hashPassword(User.password).equals(hash)){
 			return true;
 		} else {
 			return false;

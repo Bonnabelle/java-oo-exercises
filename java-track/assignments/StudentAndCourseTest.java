@@ -139,6 +139,17 @@ public class StudentAndCourseTest extends TestCase {
 			assertTrue("student toString does not contain student ID", s.toString().contains("" + c));
 		}
 	}
+	
+	@Test
+	public void testEqualityofName() {
+		for (int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			double b =  (Math.random() * 5000);
+			int c = (int)Math.random() * 500000;
+			Student s = new Student("" + a, "" + b, c);
+			assertTrue("The name objects are not equal.", s.checkEquality(s));
+		}
+	}
 
 
 
@@ -224,7 +235,23 @@ public class StudentAndCourseTest extends TestCase {
 			assertTrue("course toString does not contain credits", cc.toString().contains("" + c));
 		}
 	}
+	
+	@Test
+	public void testPlacementEquality() {
+		for (int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			int s = (int)(Math.random() * 50);
+			Course c = new Course("" + a, s, s);
 
+			for (int j = 0; j < s; j++) {
+				String aa =  "" + (Math.random() * 5000);
+				String b =  "" + (Math.random() * 5000);
+				int cc = (int)Math.random() * 500000;
+				Student s2 = new Student(aa, b, cc);
+				c.addStudent(s2);
+				assertTrue("Student placement index is broken.", c.getStudentPlace());
+		}
+	}
 
-
+}
 }
