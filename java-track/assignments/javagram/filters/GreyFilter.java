@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javagram.Picture;
 
-public class GreenFilter implements Filter{
+public class GreyFilter implements Filter{
 
 
 	public Picture process(Picture original) {
@@ -21,9 +21,11 @@ public class GreenFilter implements Filter{
 	          int g = c.getGreen();
 	          int b = c.getBlue();
 	          
-	          int newGreen = (r + g + b) / 3;
+	          int newRed = (r + g + b) / 10;
+	          int newGreen = (r + g + b) / 10;
+	          int newBlue = (r + g + b) / 10;
 	          
-	          processed.set(i, j, new Color(0, newGreen, 0));
+	          processed.set(i, j, new Color(newRed,newGreen,newBlue));
 	    	  
 	      }
 	    }

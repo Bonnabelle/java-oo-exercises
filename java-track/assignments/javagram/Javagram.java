@@ -8,12 +8,15 @@ import java.util.Scanner;
 
 public class Javagram {
 
+	private static final Filter ilter = null;
+
+
 	public static void main(String[] args) {
 
 		// Create the base path for images		
 		String[] baseParts = {System.getProperty("user.dir"), "images"};
 		String dir = String.join(File.separator, baseParts);
-		String relPath;
+		String relPath = "";
 		Picture picture = null;
 		Scanner in = new Scanner(System.in);
 		
@@ -28,9 +31,6 @@ public class Javagram {
 				System.out.println("Image path (relative to " + dir + "):");
 				relPath = in.next();
 				
-				//String[] relPathParts = relPath.split(File.separator);
-				//imagePath = dir + File.separator + String.join(File.separator, Arrays.asList(relPathParts));
-				
 				imagePath = (dir + "//" + relPath);
 				
 				picture = new Picture(imagePath);
@@ -42,18 +42,20 @@ public class Javagram {
 		} while(picture == null);
 
 		// TODO - prompt user for filter and validate input
-		System.out.println("Enter the ID of the filter for your picture.");
+		System.out.println("Welcome to Javagram!");
+		System.out.println("Select a filter for your picture.");
+		System.out.println("Enter 1 for the Blue filter, enter 2 for the Lava filter, or enter 3 for a Grey filter.");
 		int ID = in.nextInt();
-	
+		
 		// TODO - pass filter ID int to getFilter, and get an instance of Filter back
-		try {
-		} catch(Exception e){
+		do {
+		 try {
+			getFilter(ID);
+		} catch(NullPointerException e) {
 			System.out.println("Your ID was invalid. Try again.");
-			do {
-				System.out.println("Enter the ID of the filter of your picture.");
-				ID = in.nextInt();
-			} while(ID != 1 || ID != 2 || ID != 3);{}
-		} finally {
+			System.out.println("Error! Invalid filter selection. \nEnter the ID of the filter  your picture again.");
+			ID = in.nextInt();
+		}}while(ID != 1 && ID != 2 && ID != 3); 
 		
 
 		// filter and display image
@@ -61,24 +63,30 @@ public class Javagram {
 		Picture processed = filter.process(picture);
 		processed.show();
 		
-		System.out.println("Image successfully filtered");
+		System.out.println("Image successfully filtered.");
 		
 		// save image, if desired
 		
-		System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving):");
+		System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving.):");
 		String fileName = in.next();
 		
 		// TODO - if the user enters the same file name as the input file, confirm that they want to overwrite the original
-		
-		if(fileName == dir){
-			System.out.println("Are you sure you want to overwrite the image in " + dir + "? Y/N");
+		if(fileName.equals(relPath)){
+			System.out.println("Are you sure you want to overwrite the image " + relPath + "? Y/N");
 			char answer = in.next().charAt(0);
 			if(answer == 'Y' || answer == 'y'){
-				//Save image to same directory
+				String absFileName = dir + File.separator + fileName;
+				processed.save(absFileName);
+				System.out.println("Image saved to " + absFileName + ".");
+				in.close();
+			} else if(answer == 'N' || answer == 'n'){
+				System.out.println("Save image to (relative to " + dir + ") (type 'exit' to quit w/o saving.):");
+				fileName = in.next();
 			} else {
-				picture = null;
+				System.out.println("Please enter something valid.");
+				System.out.println("Image not saved.");
 			}
-		}
+		} 
 		
 		if (fileName.equals("exit")) {
 			System.out.println("Image not saved");
@@ -91,7 +99,22 @@ public class Javagram {
 		// close input scanner
 		in.close();
 	}
-	}
+	
+
+
+
+	/*private static int displayMenu(Scanner in) {
+		System.out.println("Select a filter for your picture. \nEnter 1 for Blue, enter 2 for Red, or enter 3 for Green.");
+		int ID = i
+		n.nextInt();
+		do {
+			System.out.println("Error! Invalid filter selection. \nEnter the ID of the filter  your picture again.");
+			ID = in.nextInt();
+		} while(ID != 1 || ID != 2 || ID != 3);{}
+	return ID;
+		
+	}*/
+
 	
 	// TODO - refactor this method to accept an int parameter, and return an instance of the Filter interface
 	// TODO - refactor this method to thrown an exception if the int doesn't correspond to a filter
@@ -101,26 +124,13 @@ public class Javagram {
 		} else if(ID == 2){
 			return new RedFilter();
 		} else if(ID == 3){
-			return new GreenFilter();
+			return new GreyFilter();
 		} else {
-			return null;
+			throw new NullPointerException();
 		}
 	}
-		
-		
-	
-	
-	private static int displayMenu(Scanner in) {
-		int choice = in.nextInt();
-		do {
-			System.out.println("Select a filter for your picture!");
-			System.out.println("Enter 1 for Blue.");
-			System.out.println("Enter 2 for Red.");
-			System.out.println("Enter 3 for Green.");
-			System.out.println("Enter exit to quit.");
-		} while(choice < 4 && choice > 0);{}
-	return choice;
-	}
+
 }
+
 
 

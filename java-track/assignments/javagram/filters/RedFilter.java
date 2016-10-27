@@ -20,9 +20,11 @@ public class RedFilter implements Filter{
 	          int g = c.getGreen();
 	          int b = c.getBlue();
 	          
-	          int newRed = (r + g + b) / 3;
+	          int newRed = (((r + g + b) % 10) / 10 + (r + g + b)) % 255;
+	          int newGreen = (((r + g + b) % 10) / 10 + (r + g + b)) % 250;
+	          int newBlue = (((r + g + b) % 10) / 10 + (r + g + b)) % 245;
 	          
-	          processed.set(i, j, new Color(newRed, 0, 0));
+	          processed.set(i, j, new Color(newRed,newGreen,newBlue));
 	    	  
 	      }
 	    }
