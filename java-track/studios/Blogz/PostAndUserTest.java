@@ -40,6 +40,12 @@ public class PostAndUserTest {
 	}
 	
 	@Test
+	public void testUserAdd() {
+		User hoi = new User("Hoiee","gogo123");
+		assertTrue(User.getUsers().contains(hoi));
+	}
+	
+	@Test
 	public void testEdit() {
 		p.edit("Blloooo", "Blaaaarg");
 		assertTrue(p == p.getPost());

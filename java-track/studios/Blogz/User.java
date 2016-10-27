@@ -13,13 +13,16 @@ public class User extends Entity{
 	//Constructor
 	public User(String username, String password){
 		super();
-		User.users.add(this);
 		this.username = username;
 		this.password = password;
+		String h = hashPassword(password);
+		if(isValidPassword(h) && isValidUsername(username)){
+			User.users.add(this);
+		}
 	}
 	
 	//Getters
-	public ArrayList<User> getUsers() {
+	public static ArrayList<User> getUsers() {
 		return User.users;
 	}
 	
@@ -49,5 +52,4 @@ public class User extends Entity{
 		 boolean comp = Pattern.matches(pattern,username);
 		 return comp;
 	}
-
 }
